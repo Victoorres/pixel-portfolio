@@ -1,9 +1,0 @@
-{
-  "name": "Victor Torres - Full-Stack Developer",
-  "short_name": "Victor Torres",
-  "description": "Portfólio interativo estilo pixel art",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#e1dac5",
-  "theme_color": "#a5da60"
-}
