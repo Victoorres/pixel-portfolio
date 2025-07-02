@@ -322,7 +322,7 @@ export function SnakeGame({ isOpen, onClose }: SnakeGameProps) {
                   <div className="text-xl font-bold mb-2">GAME OVER!</div>
                   <div className="text-sm mb-4">PONTUAÇÃO FINAL: {gameState.score}</div>
                   {gameState.score === highScore && gameState.score > 0 && (
-                    <div className="text-sm mb-4 text-yellow-600">🏆 NOVO RECORDE!</div>
+                    <div className="text-sm mb-4 text-white">🏆 NOVO RECORDE!</div>
                   )}
                 </PixelatedBox>
               </div>

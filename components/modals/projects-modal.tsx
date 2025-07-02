@@ -1,80 +1,79 @@
-"use client"
+'use client';
 
-import { PixelatedButton, PixelatedBox, PixelatedModal } from "@/components/pixelated-ui"
-import { Github, Globe, Code, Zap, Star } from "lucide-react"
+import { PixelatedButton, PixelatedBox, PixelatedModal } from '@/components/pixelated-ui';
+import { Github, Globe, Code, Zap, Star, ArrowRight, Link, ExternalLink } from 'lucide-react';
 
 interface ProjectsModalProps {
-  isOpen: boolean
-  onClose: () => void
-  onButtonClick: () => void
+  isOpen: boolean;
+  onClose: () => void;
+  onButtonClick: () => void;
 }
 
 export function ProjectsModal({ isOpen, onClose, onButtonClick }: ProjectsModalProps) {
   const projects = [
     {
       id: 1,
-      title: "E-COMMERCE MODERNO",
-      description: "PLATAFORMA COMPLETA DE VENDAS ONLINE COM REACT E NODE.JS",
-      image: "/project-1.png",
-      technologies: ["REACT", "NODE.JS", "MONGODB", "STRIPE"],
-      status: "CONCLUÍDO",
+      title: 'UP CONNECTION',
+      description: 'PLATAFORMA PARA PROFISSIONAIS E AMANTES DE DECORAÇÃO',
+      image: '/logo-up.png',
+      technologies: ['NEXT.JS', 'NESTJS', 'MYSQL', 'STRIPE', 'AWS', 'CLOUDINARY'],
+      status: 'CONCLUÍDO',
       featured: true,
       links: {
+        demo: 'https://www.upconnection.app/',
       },
     },
     {
       id: 2,
-      title: "DASHBOARD ANALYTICS",
-      description: "SISTEMA DE ANÁLISE DE DADOS COM GRÁFICOS INTERATIVOS",
-      image: "/project-2.png",
-      technologies: ["NEXT.JS", "TYPESCRIPT", "CHART.JS", "POSTGRESQL"],
-      status: "CONCLUÍDO",
+      title: 'CLIQUI',
+      description: 'SISTEMA DE DESENVOLVIMENTO DE LANDING PAGES',
+      image: '/logo-cliqui.png',
+      technologies: ['NEXT.JS', 'TYPESCRIPT', 'FRAMER', 'TAILWIND'],
+      status: 'CONCLUÍDO',
       featured: true,
       links: {
-
+        demo: 'https://www.usecliqui.com.br/',
       },
     },
-    {
-      id: 3,
-      title: "APP MOBILE DELIVERY",
-      description: "APLICATIVO DE DELIVERY COM REACT NATIVE E GEOLOCALIZAÇÃO",
-      image: "/project-3.png",
-      technologies: ["REACT NATIVE", "EXPO", "FIREBASE", "MAPS API"],
-      status: "EM DESENVOLVIMENTO",
-      featured: false,
-      links: {
-      },
-    },
-    {
-      id: 4,
-      title: "PIXEL PORTFOLIO",
-      description: "PORTFÓLIO INTERATIVO ESTILO PIXEL ART COM JOGOS",
-      image: "/project-4.png",
-      technologies: ["NEXT.JS", "TAILWIND", "CANVAS API", "WEB AUDIO"],
-      status: "CONCLUÍDO",
-      featured: true,
-      links: {
-      },
-    },
-  ]
+    // {
+    //   id: 3,
+    //   title: 'APP MOBILE DELIVERY',
+    //   description: 'APLICATIVO DE DELIVERY COM REACT NATIVE E GEOLOCALIZAÇÃO',
+    //   image: '/project-3.png',
+    //   technologies: ['REACT NATIVE', 'EXPO', 'FIREBASE', 'MAPS API'],
+    //   status: 'EM DESENVOLVIMENTO',
+    //   featured: false,
+    //   links: {},
+    // },
+    // {
+    //   id: 4,
+    //   title: 'PIXEL PORTFOLIO',
+    //   description: 'PORTFÓLIO INTERATIVO ESTILO PIXEL ART COM JOGOS',
+    //   image: '/project-4.png',
+    //   technologies: ['NEXT.JS', 'TAILWIND', 'CANVAS API', 'WEB AUDIO'],
+    //   status: 'CONCLUÍDO',
+    //   featured: true,
+    //   links: {},
+    // },
+  ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "CONCLUÍDO":
-        return "green"
-      case "EM DESENVOLVIMENTO":
-        return "orange"
-      case "PLANEJAMENTO":
-        return "blue"
+      case 'CONCLUÍDO':
+        return 'green';
+      case 'EM DESENVOLVIMENTO':
+        return 'orange';
+      case 'PLANEJAMENTO':
+        return 'blue';
       default:
-        return "grey"
+        return 'grey';
     }
-  }
+  };
 
   const handleLinkClick = (url: string) => {
-    onButtonClick()
-    window.open(url, "_blank", "noopener,noreferrer")
-  }
+    onButtonClick();
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <PixelatedModal isOpen={isOpen} onClose={onClose} title="💼 MEUS PROJETOS" showStar={true}>
@@ -97,15 +96,15 @@ export function ProjectsModal({ isOpen, onClose, onButtonClick }: ProjectsModalP
               </div>
 
               {/* Project Image */}
-              <div className="mb-3 bg-gray-200 h-32 rounded flex items-center justify-center">
+              <div className="mb-3 bg-transparent h-80 rounded flex items-center justify-center">
                 <img
-                  src={project.image || "/placeholder.svg"}
+                  src={project.image || '/placeholder.svg'}
                   alt={project.title}
-                  className="w-full h-full object-cover rounded pixelated"
+                  className="w-90 h-full object-cover rounded"
                   onError={(e) => {
-                    const target = e.target as HTMLImageElement
-                    target.style.display = "none"
-                    target.nextElementSibling?.classList.remove("hidden")
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
                 <div className="hidden flex items-center justify-center text-gray-500">
@@ -135,16 +134,18 @@ export function ProjectsModal({ isOpen, onClose, onButtonClick }: ProjectsModalP
               <div className="flex gap-4">
                 {project.links.demo && (
                   <PixelatedButton
-                    variant="green"
+                    variant="orange"
                     className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-xs pixel-cursor-pointer"
                     onClick={() => handleLinkClick(project.links.demo!)}
                   >
-                    <Globe className="w-3 h-3" />
-                    DEMO
+                    <div className="flex gap-4 font-bold">
+                      VISUALIZAR
+                      <ExternalLink className="w-3 h-3 mt-0.5" />
+                    </div>
                   </PixelatedButton>
                 )}
 
-                {project.links.github && (
+                {/* {project.links.github && (
                   <PixelatedButton
                     variant="default"
                     className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-xs pixel-cursor-pointer"
@@ -153,7 +154,7 @@ export function ProjectsModal({ isOpen, onClose, onButtonClick }: ProjectsModalP
                     <Github className="w-3 h-3" />
                     CÓDIGO
                   </PixelatedButton>
-                )}
+                )} */}
               </div>
             </PixelatedBox>
           ))}
@@ -189,15 +190,15 @@ export function ProjectsModal({ isOpen, onClose, onButtonClick }: ProjectsModalP
             variant="twitter"
             className="px-6 py-3 pixel-cursor-pointer"
             onClick={() => {
-              onClose()
-              onButtonClick()
+              onClose();
+              onButtonClick();
               // Aqui você pode abrir o modal de contato ou redirecionar
             }}
           >
             VAMOS CONVERSAR!
           </PixelatedButton>
-        </PixelatedBox>       
+        </PixelatedBox>
       </div>
     </PixelatedModal>
-  )
+  );
 }
