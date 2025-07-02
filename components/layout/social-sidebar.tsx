@@ -22,8 +22,8 @@ export function SocialSidebar({
     onButtonClick();
     const links = {
       github: 'https://github.com/victortorres',
-      linkedin: 'https://linkedin.com/in/victortorres',
-      instagram: 'https://twitter.com/victortorres',
+      linkedin: 'https://linkedin.com/in/iamvictormt',
+      instagram: 'https://instagram.com/iamvictormt',
     };
 
     window.open(links[platform as keyof typeof links], '_blank', 'noopener,noreferrer');
@@ -53,14 +53,14 @@ export function SocialSidebar({
         </PixelatedButton>
 
         {/* Social Links */}
-        <PixelatedButton
+        {/* <PixelatedButton
           variant="default"
           className="p-3 pixel-cursor-pointer"
           onClick={() => handleSocialClick('github')}
           title="GitHub"
         >
           <Github className="w-5 h-5" />
-        </PixelatedButton>
+        </PixelatedButton> */}
 
         <PixelatedButton
           variant="default"

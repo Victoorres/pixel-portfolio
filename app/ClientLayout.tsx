@@ -13,8 +13,8 @@ function RouteProtection({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    // Only protect /portfolio route
-    if (pathname === '/portfolio') {
+    // Only protect /home route
+    if (pathname === '/home') {
       const cameFromHome = sessionStorage.getItem('cameFromHomePage');
       const userHasInteracted = sessionStorage.getItem('userHasInteracted');
       const interactionTimestamp = sessionStorage.getItem('interactionTimestamp');
